@@ -1,0 +1,14 @@
+1，在GenBusinessEbiAction中的方法public Object execute(ModuleConfModel moduleConf, Object obj)实现的功能
+分散到父类BaseGenAction中实现了，在本类中只需要调用
+public GenComponent beforeAction(ModuleConfModel moduleConf){
+       return super.defaultBeforeAction(moduleConf);
+}
+2，在GenBusinessEbiAction中的方法：
+public Object executeDecorators(ModuleConfModel moduleConf, Object obj,
+			GenComponent gc);
+最终会在BaseGenAction类中的
+public Object generate(ModuleConfModel moduleConf);
+中调用。
+if(before != null){
+	obj = this.executeDecorators(moduleConf, obj, (GenComponent)before);
+}

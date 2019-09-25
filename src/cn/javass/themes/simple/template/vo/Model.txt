@@ -1,0 +1,39 @@
+package ${modulePackge}.vo;
+
+public class ${moduleNameSuperCase}Model implements java.io.Serializable{
+	public static final String TBL_NAME = "tbl_${moduleNameSuperCase}";
+	private String uuid;
+	$[cn.javass.themes.simple.visitors.VoPropertiesDesign]
+	
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((uuid == null) ? 0 : uuid.hashCode());
+		return result;
+	}
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final ${moduleNameSuperCase}Model other = (${moduleNameSuperCase}Model) obj;
+		if (uuid == null) {
+			if (other.uuid != null)
+				return false;
+		} else if (!uuid.equals(other.uuid))
+			return false;
+		return true;
+	}	
+	public String toString(){
+		return buffer.toString(); 
+	}
+}

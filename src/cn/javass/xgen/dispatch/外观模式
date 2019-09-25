@@ -1,0 +1,5 @@
+说明：外观模式通常实现成为类|外观里面一般也不去真正实现功能 == 本质-->封装交互，简化调用
+实现的类：GenFacade  -->可以实现成为：单例 | 工具类
+功能：提供给外部实用的方法，客户端通过这个方法来请求生成器运行
+与之打相关的类：CoreMediator.getInstance().getNeedGenModuleConf(provider)也是中介者模式
+相关的类：它与中介者模式交互CoreMediator   不与具体的功能类发生调用,由中介者CoreMediator调用具体的功能类

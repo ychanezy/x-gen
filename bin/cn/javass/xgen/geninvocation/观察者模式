@@ -1,0 +1,20 @@
+1，现在把DefaultGenInvocation当成目标对象，在状态模式中已经充当上下文了，是各个状态的公共对象。
+既然是公共对象，数据变化通知这个对象就可以了。在这个类里面直接继承Observable类。
+/**
+	 * 通知内容已经生成好了，可以触发联动了
+	 * @param obj
+	 */
+	public void setContentOver(Object obj){
+		this.setChanged();
+		this.notifyObservers(obj);
+	}
+在这个类里面还定义了一个：
+    /**
+	 * 存放多个解析过程中的临时内容
+	 */
+	private Object tempContent =  null;
+这个临时对象在后面的GenState
+//设置临时的内容
+ctx.setTempContent(obj);
+与OutState会用到，其中：OutState当成观察者 1：注册观察者，需要把需要输出的类型当成观察者，并注册到obserable里面
+2：通知观察者。

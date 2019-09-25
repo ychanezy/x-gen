@@ -1,0 +1,11 @@
+1，在DefaultGenInvocation这个类中的executeGen方法加入状态模式。
+状态模式：需要引入Context上下文|状态处理类，根据状态来分离和选择行为
+定义：接口-->State  方法doWork 参数上下文 DefaultGenInvocation
+实现类：GenState生成 --功能：1，实现业务功能|设置下一个state 2，
+获取每个theme对应的Action【用到了中介者模式】---这里面需要再执行后面的功能
+【BaseGenAction中的generate这个方法】
+实现类：OutState生成的内容输出--设置后续的state
+定义一个缺省的类DefaultBeginState 这里面并不实现真正的内容，只是用来设置第一个State
+关键是：在DefaultGenInvocation这个类中的executeGen()的方法，以后就不用再改了。
+
+网上实例：http://blog.csdn.net/jason0539/article/details/45021055

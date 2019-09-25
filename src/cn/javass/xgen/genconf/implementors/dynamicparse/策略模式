@@ -1,0 +1,12 @@
+该模式主要作用是解析：UserGenConf.xml---【<ExtendConf id="modulePackge" isSingle="true">${gm.getMapConstants().get("prePackage");}.${gm.getMapConstants().get("projectName");}.test</ExtendConf>】
+解析元素里面的表达式：如 ${gm.getMapConstants().get("prePackage");}等
+ParseStrategy  接口
+一个实现方式：shell BeanShellStrategy
+另一个实现方式：直接替换-PropertyReplaceStrategy
+动态解析内容策略：ParseContext
+
+调用的地方：ModuleGenConfXmlImpl---getMapExtends()
+line--56-59
+//等读取完成后，再来进行动态解析
+ParseContext pctx = new ParseContext();
+map = pctx.parse(gm, map);

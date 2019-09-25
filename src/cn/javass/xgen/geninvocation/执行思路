@@ -1,0 +1,21 @@
+在加入了模板方法模式、工厂方法模式和装饰器模式过后，在DefaultGenInvocation的executeGen方法里面，
+调用每个theme的action来生成内容的功能就很容易实现出来了。
+
+首先不是调用DefaultGenInvocation中的方法public void executeGen()
+//设置generate调用流程开始需要执行的状态
+		state = new DefaultBeginState();
+		//让状态执行工作
+		state.doWork(this);
+state = new DefaultBeginState();实际是通过GenState的doWork
+来完成的，obj = ((BaseGenAction)Class.forName(className).newInstance()).generate(ctx.getModuleConf());
+其中的generate方法又回到BaseGenAction类中的generate方法。前面或后面的功能是通过装饰器来完成。
+
+接着要把内容输出的：OutState类 用观察者模式来实现。
+
+把要输出的内容当成被观察的对象，观察者就是输出形式如：File和Console，在UserGenConf.xml
+中定义的NeedGenOutType的形式，多个观察者都是观察内容。
+观察者内容是在GenState类中的doWork中准备好的，
+
+观察者模式：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知
+并自动更新。
+

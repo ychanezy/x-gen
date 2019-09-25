@@ -1,0 +1,19 @@
+模板模式：模板类实现的就是不变的方法和算法的骨架，而需要变化的地方，都通过抽象方法，把具体实现延迟到了类去了，
+而且还通过了父类的定义来约束了子类的行为，从而使系统能有更好的复用性和扩展性。可以使用JAVA回调来实现模板方法，
+回调机制是通过委托的方式来组合功能。
+
+1,定义成抽象的类：BaseGenAction类，模板方法，执行每个功能的具体generate过程|public abstract Object initObject()原语操作，
+一个工厂方法，初始化封装generate生成内容的对象
+原语操作，执行Action的 generate方法---public abstract Object execute(ModuleConfModel moduleConf,Object obj)
+钩子操作， ---public GenComponent afterAction(ModuleConfModel moduleConf)
+钩子操作，在执行action之前要实现的功能---public GenComponent beforeAction(ModuleConfModel moduleConf)
+ 执行Action的装饰器对象---public abstract Object executeDecorators(ModuleConfModel moduleConf,Object obj,GenComponent gc);
+
+ 2,子类GenBusinessEbiAction实现BaseGenAction中的抽象方法,它主要作用是：1)：读取相应的模板文件|2)：分解模板文件里面需要替
+ 换的属性，从moduleConf里面取值替换过去|
+ 3)：分解模板文件里面需要执行的方法，这个并不一定是每个功能都需要的。
+ 
+ 接着来完成：状态模式中的GenState没有完成的功能：doWork中的obj = ((BaseGenAction)Class.forName(className).newInstance()
+ ).generate(ctx.getModuleConf());
+ 这个时候这个类的方法就全了。
+ 

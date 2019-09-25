@@ -1,0 +1,6 @@
+中介者知识要点：主要用来封装对象之间的交互
+ 本质：封装交互
+ 主要实现类：CoreMediator  |  实现方式：实现成为单例
+
+ http://blog.csdn.net/jason0539/article/details/45216585
+ 

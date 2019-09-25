@@ -1,0 +1,16 @@
+package ${modulePackge}.business.ebi;
+
+import java.util.Collection;
+
+import ${modulePackge}.vo.*;
+
+public interface ${moduleNameSuperCase}Ebi {
+	public String create(${moduleNameSuperCase}Model obj);
+	public void update(${moduleNameSuperCase}Model obj);
+	public void delete(${moduleNameSuperCase}Model obj);
+	
+	public ${moduleNameSuperCase}Model getByUuid(String uuid);
+	public int getCount(${moduleNameSuperCase}QueryModel queryModel);
+	public Collection<${moduleNameSuperCase}Model> getAll(boolean needPage,int start,int pageShow);
+	public Collection<${moduleNameSuperCase}Model> getByCondition(${moduleNameSuperCase}QueryModel queryModel,boolean needPage,int start,int pageShow);
+}

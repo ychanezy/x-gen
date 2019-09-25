@@ -1,0 +1,13 @@
+1，定义一个抽象组件类：GenComponent
+2，默认实现装饰器对象：DefaultComponent
+3，定义一个抽象组件类：GenDecorator--持有组件对象- GenComponent 缺省实现，转发请求给下一个具体的组件对象
+4，这个模式的主要作用是：完成GenBusinessEbiAction中的几种功能。
+        //1：读取相应的模板文件
+		//2：分解模板文件里面需要替换的属性，从moduleConf里面取值替换过去
+		//3：分解模板文件里面需要执行的方法，这个并不一定是每个功能都需要的
+
+5，在BaseGenAction类中执行装饰者模式，提供给子类的公共方法，缺省执行action操作前的 装饰器对象。
+
+
+
+网上实例：https://www.cnblogs.com/qiumingcheng/p/5219631.html

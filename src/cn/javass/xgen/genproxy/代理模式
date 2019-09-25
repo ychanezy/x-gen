@@ -1,0 +1,18 @@
+代理模式主要作用：根据配置和客户端的选择，来代理找到具体执行功能的对象，并启动具体执行generate功能的对象
+
+代理模式主要接口与类
+1,接口：GenInvocation   执行真正的generate
+2,默认实现：DefaultProxy 事实上，代理模块对外是没有自己的接口的，它实现的是被代理的对象的接口，也就是
+生成调用的接口|生成代理，其实是一个介于分发调度和 具体生成 之间的额外的附加层。
+ 目的就是为了今后可以根据需要切换不同的 具体实现。
+3,GenInvocation是一个subject而DefaultProxy是一个代理对象，DefaultProxy得持有一个真正的对象
+GenInvocation这里也就是一个接口对象【持有的真正执行generate的对象】,通过构造方法传递对象
+this.invocation.executeGen()把功能转交给真正执行generate的对象
+4,对外提供一个工厂：GenProxyFactory得到一个真正执行的对象
+5,这个GenProxyFactory是在职责 链模式中的DefaultHandler中提供调用
+
+面临的问题：
+  由于要在分发调度模块和具体生成模块之间引入一个间接性，以备在需要的时候，可以让相同的分发高度模块调用不同的具体
+生成模块，而且要考虑到可能需要访问远程的功能
+
+代理本质：封闭对象访问

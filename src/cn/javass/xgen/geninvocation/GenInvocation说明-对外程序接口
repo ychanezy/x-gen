@@ -1,0 +1,9 @@
+1,对外程序接口类-GenInvocation,缺省实现DefaultGenInvocation,对外工厂GenInvocationFactory
+2,实现GenInvocation接口的类是DefaultGenInvocation,该类里面一定要有1)具体要生成的类型标识,
+2)当前被generate模块的配置数据
+通过构造方法传递参数
+3,DefaultGenInvocation中的方法executeGen主要功能：(1)第一大步：按照一定流程调用相应的生成实现，
+获取生成的内容(2)第二大步：把生成的内容输出出去
+这个方法调用状态模式
+在DefaultGenInvocation类，再定义一个方法，转调状态的的方法-执行工作，在每一个State完成自己的工作之后调用
+

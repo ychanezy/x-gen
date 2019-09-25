@@ -1,0 +1,10 @@
+GenOutputEbi类继承Observer观察者模式，而DefaultGenInvocation这个类也继承观察者
+    /**
+	 * 通知内容已经生成好了，可以触发联动了
+	 * @param obj
+	 */
+	public void setContentOver(Object obj){
+		this.setChanged();
+		this.notifyObservers(obj);
+	}
+观察者模式主要在OutState类中注册内容，在GenOutputEbi中实现类直接取得内容。

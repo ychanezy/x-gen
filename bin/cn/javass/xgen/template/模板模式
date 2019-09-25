@@ -1,0 +1,15 @@
+1，先定义一个接口：TemplateEbi,实现一个缺省的实现 DefaultTemplateEbo
+/**
+ * 模块配置的数据model
+ */
+private ModuleConfModel moduleConf;
+/**
+ * 需要生成的类型标识
+ */
+private String genTypeId;
+/**
+ * 当前被模板处理的内容
+ */
+private Object nowContent;
+
+模板模式中调用享元模式的方法

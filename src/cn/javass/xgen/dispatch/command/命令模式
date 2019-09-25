@@ -1,0 +1,20 @@
+1，定义一个接口：GenCommand类
+2，定义一个缺省的实现：DefaultCommand
+3，定义一个Invoker:CmdInvoker
+4，与外界交互的类是：GenFacade中的genOneModule
+5，在缺省实现DefaultCommand中，定义ModuleConfModel对象:方式是构造方法
+6，在CmdInvoker中持有的GenCommand命令对象:方式是set
+7，外观模式GenFacade中的genOneModule中使用命令
+eg:
+        //1：创建命令对象
+		GenCommand cmd = new DefaultCommand(mcm);
+		//2：创建invoker
+		CmdInvoker invoker = new CmdInvoker();
+		
+		invoker.setCmd(cmd);
+		
+		//3：通过invoker执行命令
+		invoker.doCommand();
+8，在这个DefaultCommand类调用后续的模块去实现真正的功能，在这个类的方法execute它会
+调用职责链GenHandler中的handleRequest(),这个execute方法，它相当于职责链的客户端
+

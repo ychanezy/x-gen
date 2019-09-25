@@ -1,0 +1,3 @@
+它主要为OutputToFile类中使用
+1，抽象工厂：AbstractFactory 有两个产品对象Outter与GenOutPathPackages
+

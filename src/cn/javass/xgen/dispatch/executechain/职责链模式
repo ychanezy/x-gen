@@ -1,0 +1,15 @@
+1，先定义一个抽象类：GenHandler 里面实现一些公共的功能
+2，定义一个缺省的实现：DefaultHandler
+3，抽象类：GenHandler里面会持有后继的职责对象protected GenHandler successor|缺省实现处理请求的方法ModuleConfModel
+如果不属于自己的职责范围，那就判断是否还有后继的职责对象,如果有，就转发请求给后继的职责对象
+4，在DefaultHandler中，本职责对象要实现的功能    ：  继续调用 真正 实现 生成功能的模块
+5，在什么地方调用：调用代理模式中的GenProxyFactory中GenProxyFactory.createGenProxy(needGenType, moduleConf).executeGen()
+这个方法，把GenProxyFactory放到中介者模式中。
+
+
+注意：在GenFacade类中的genoneModule方法中
+【比如：发出命令是生成A模块】，接着到DefaualtCommand中，【比如：生成A模块的Ebi,Ebo,DAO这样就形成了三个职责对象】---这些都是从配置文件中来的
+再到具体的职责对象DefaultHandler类中，根据需要生成的标识如：DAO等，一个职责对象生成一个DAO。Ebo由另一个职责对象生成。
+
+
+网上实例：https://www.cnblogs.com/jiqing9006/p/5986568.html
