@@ -1,0 +1,53 @@
+CommonBuilder<T> 这是建造者模式抽象模式
+这里面有两个抽象方法需要子类实现的：
+	/**
+	 * 用来获取 分步骤拼接的字符串，也就是最终产品
+	 */
+	protected abstract StringBuffer getBuilderBuffer();
+	/**
+	 * 获取实际的构建器对象
+	 * @return
+	 */
+	protected abstract T getBuilderClassInstance();
+
+抽象类里面的实现方法：
+   /**
+	 * 拼接 “.” , 支持连缀
+	 * @return
+	 */
+	public T addDot(){
+		getBuilderBuffer().append(ExpressionEnum.dot.getExpr());
+		return getBuilderClassInstance();
+	}
+	
+	public String build(){
+		return getBuilderBuffer().toString();
+	}
+使用了上面的两个抽象方法：
+如：getBuilderBuffer()  与 getBuilderClassInstance()
+
+实现类：GenConfBuilder、ModuleGenConfBuilder和ThemeBuilder
+
+   /**
+	 * 用来记录分步骤拼接的字符串，也就是最终产品
+	 */
+	private StringBuffer buffer = new StringBuffer();
+	
+	@Override
+	protected StringBuffer getBuilderBuffer() {
+		return this.buffer;
+	}
+	@Override
+	protected GenConfBuilder getBuilderClassInstance() {
+		return this;
+	}
+
+使用的地方：
+GenConfXmlImpl的这个类中使用：parseConstantValues这个方法：
+ReadXmlExpression re = Parser.parse(
+				new GenConfBuilder().addGenConf().addSeparator().addConstants().addSeparator()
+				.addConstant().addDollar()
+				.build()
+				);
+
+	
