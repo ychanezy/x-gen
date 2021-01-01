@@ -7,7 +7,7 @@ import cn.javass.xgen.genconf.implementors.xmlimpl.GenConfXmlImpl;
 import cn.javass.xgen.util.readxml.Context;
 import cn.javass.xgen.util.readxml.Parser;
 
-public class MyTest {
+public class MyTest { 
 	
 	public static void main(String[] args) throws Exception{
 		//1: 表达式 ----〉抽象语法树====〉解析器
