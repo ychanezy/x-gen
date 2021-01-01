@@ -21,7 +21,7 @@ public class MyTest {
 //		
 //		ElementsTerminalExpression param = new ElementsTerminalExpression("Param", "id=fileName2");
 //		
-//		
+//		   
 //		//组装抽象语法树
 //		genConf.addEle(needGens);
 //		needGens.addEle(needGen);
