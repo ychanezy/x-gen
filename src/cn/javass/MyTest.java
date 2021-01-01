@@ -10,7 +10,7 @@ import cn.javass.xgen.util.readxml.Parser;
 public class MyTest { 
 	
 	public static void main(String[] args) throws Exception{
-		//1: 表达式 ----〉抽象语法树====〉解析器
+		//1: 表达式 ----〉抽象语法树====〉解析器 
 		//2：抽象语法树---〉交给解释器模式去解释执行
 		
 		
